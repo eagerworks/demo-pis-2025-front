@@ -1,13 +1,7 @@
 import getPostById from "@/api/fetchers/getPostById";
 import DeletePostButton from "./_components/DeletePostButton";
 
-type Props = {
-  params: Promise<{
-    id: string;
-  }>;
-};
-
-export default async function PostPage({ params }: Props) {
+export default async function PostPage({ params }: PageProps<"/posts/[id]">) {
   const { id } = await params;
   const post = await getPostById(id);
 

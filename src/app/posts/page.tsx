@@ -1,9 +1,8 @@
-import getPosts from "@/api/fetchers/getPosts";
+import { Suspense } from "react";
 import { Link } from "@/components/Link";
+import PostsList, { Loading } from "./_components/PostsList";
 
 export default async function Posts() {
-  const posts = await getPosts();
-
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-row justify-between items-center">
@@ -14,15 +13,9 @@ export default async function Posts() {
         </Link>
       </div>
 
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link href={`/posts/${post.id}`} variant="link">
-              {post.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Suspense fallback={<Loading />}>
+        <PostsList />
+      </Suspense>
     </div>
   );
 }
