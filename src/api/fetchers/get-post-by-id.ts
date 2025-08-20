@@ -2,12 +2,15 @@ import { postSchema } from "@/types/post";
 import { fetcher } from "../helpers/fetchers";
 
 export default async function getPostById(id: string) {
-  const post = await fetcher(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-    method: "GET",
-    next: {
-      tags: ["all", "posts", `post-${id}`],
+  const post = await fetcher(
+    `https://jsonplaceholder.typicode.com/posts/${id}`,
+    {
+      method: "GET",
+      next: {
+        tags: ["all", "posts", `post-${id}`],
+      },
     },
-  });
+  );
 
   const parsedPost = postSchema.safeParse(post);
 

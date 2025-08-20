@@ -27,11 +27,19 @@ type FetchOptions = (GetFetchOptions | MutationFetchOptions) & {
   headers?: Record<string, string>;
 };
 
-export async function fetcher(path: string, options: Partial<FetchOptions> = {}) {
+export async function fetcher(
+  path: string,
+  options: Partial<FetchOptions> = {},
+) {
   const response = await fetch(path, options);
   const contentType = response.headers.get("Content-Type");
   const status = response.status;
-  const data = status === 204 ? null : contentType === "text/csv" ? await response.text() : await response.json();
+  const data =
+    status === 204
+      ? null
+      : contentType === "text/csv"
+        ? await response.text()
+        : await response.json();
 
   return data;
 }
