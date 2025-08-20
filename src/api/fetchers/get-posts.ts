@@ -1,4 +1,4 @@
-import { postSchema } from "@/types/Post";
+import { postSchema } from "@/types/post";
 import { fetcher } from "../helpers/fetchers";
 
 const responseSchema = postSchema.array();

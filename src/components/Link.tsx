@@ -1,7 +1,7 @@
-import { VariantProps } from "class-variance-authority";
-import { buttonVariants } from "./Button";
+import type { VariantProps } from "class-variance-authority";
 import NextLink from "next/link";
 import cn from "@/helpers/cn";
+import { buttonVariants } from "./button";
 
 type Props = React.ComponentProps<"a"> &
   VariantProps<typeof buttonVariants> & {
@@ -10,7 +10,11 @@ type Props = React.ComponentProps<"a"> &
 
 function Link({ className, variant, size, href, children, ...props }: Props) {
   return (
-    <NextLink href={href} className={cn(buttonVariants({ variant, size, className }))} {...props}>
+    <NextLink
+      href={href}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    >
       {children}
     </NextLink>
   );

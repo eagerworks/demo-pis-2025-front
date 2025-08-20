@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import z from "zod";
 import { createPostAction } from "@/api/actions/posts";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 import {
   Form,
   FormControl,
@@ -15,9 +15,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/Form";
-import { Input } from "@/components/Input";
-import { TextArea } from "@/components/TextArea";
+} from "@/components/form";
+import { Input } from "@/components/input";
+import { TextArea } from "@/components/text-area";
 
 const createPostDataSchema = z.object({
   title: z.string().min(1, "Title is required"),

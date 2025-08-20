@@ -1,9 +1,9 @@
 "use server";
 
 import { revalidateTag } from "next/cache";
-import createPost from "../fetchers/createPost";
 import { redirect } from "next/navigation";
-import deletePost from "../fetchers/deletePost";
+import createPost from "../fetchers/create-post";
+import deletePost from "../fetchers/delete-post";
 
 type FormState = {
   status: "SUCCESS" | "ERROR" | "INITIAL";
@@ -16,8 +16,11 @@ type CreatePostData = {
   userId: number;
 };
 
-export async function createPostAction(_prevState: FormState, data: CreatePostData): Promise<FormState> {
-  let redirectUrl;
+export async function createPostAction(
+  _prevState: FormState,
+  data: CreatePostData,
+): Promise<FormState> {
+  let redirectUrl: string | undefined;
 
   try {
     await createPost(data);
@@ -34,8 +37,11 @@ export async function createPostAction(_prevState: FormState, data: CreatePostDa
   }
 }
 
-export async function deletePostAction(_prevState: FormState, id: string): Promise<FormState> {
-  let redirectUrl;
+export async function deletePostAction(
+  _prevState: FormState,
+  id: string,
+): Promise<FormState> {
+  let redirectUrl: string | undefined;
 
   try {
     await deletePost(id);

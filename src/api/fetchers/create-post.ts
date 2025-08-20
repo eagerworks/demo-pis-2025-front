@@ -1,4 +1,4 @@
-import { type Post, postSchema } from "@/types/Post";
+import { type Post, postSchema } from "@/types/post";
 import { fetcher } from "../helpers/fetchers";
 
 type CreatePostData = Pick<Post, "title" | "body" | "userId">;

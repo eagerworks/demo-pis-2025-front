@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import { Link } from "@/components/Link";
-import PostsList, { Loading } from "./_components/PostsList";
+import { Link } from "@/components/link";
+import PostsList, { Loading } from "./_components/posts-list";
 
 export default async function Posts() {
   return (

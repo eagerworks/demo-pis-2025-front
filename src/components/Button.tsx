@@ -1,5 +1,5 @@
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import type * as React from "react";
 import cn from "@/helpers/cn";
 
 const buttonVariants = cva(
@@ -7,14 +7,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        filled: "bg-foreground text-background shadow-xs hover:bg-foreground/70",
+        default:
+          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+        filled:
+          "bg-foreground text-background shadow-xs hover:bg-foreground/70",
         destructive:
           "border bg-background shadow-xs dark:bg-input/30 dark:border-input border-destructive text-destructive hover:opacity-50",
         outline:
           "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
-        secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+        secondary:
+          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+        ghost:
+          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
@@ -28,7 +32,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 function Button({
@@ -37,7 +41,12 @@ function Button({
   size,
   ...props
 }: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
-  return <button className={cn(buttonVariants({ variant, size, className }))} {...props} />;
+  return (
+    <button
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
+  );
 }
 
 export { Button, buttonVariants };

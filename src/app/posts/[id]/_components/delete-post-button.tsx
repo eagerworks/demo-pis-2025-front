@@ -4,7 +4,7 @@ import { LoaderIcon } from "lucide-react";
 import { useActionState, useEffect, useTransition } from "react";
 import { toast } from "sonner";
 import { deletePostAction } from "@/api/actions/posts";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 
 type Props = {
   id: string;

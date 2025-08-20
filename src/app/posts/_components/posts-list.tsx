@@ -1,6 +1,6 @@
 import { LoaderIcon } from "lucide-react";
-import getPosts from "@/api/fetchers/getPosts";
-import { Link } from "@/components/Link";
+import getPosts from "@/api/fetchers/get-posts";
+import { Link } from "@/components/link";
 
 export default async function PostsList() {
   const posts = await getPosts();

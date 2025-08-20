@@ -1,4 +1,4 @@
-import { postSchema } from "@/types/Post";
+import { postSchema } from "@/types/post";
 import { fetcher } from "../helpers/fetchers";
 
 export default async function getPostById(id: string) {

@@ -1,5 +1,5 @@
-import getPostById from "@/api/fetchers/getPostById";
-import DeletePostButton from "./_components/DeletePostButton";
+import getPostById from "@/api/fetchers/get-post-by-id";
+import DeletePostButton from "./_components/delete-post-button";
 
 export default async function PostPage({ params }: PageProps<"/posts/[id]">) {
   const { id } = await params;
