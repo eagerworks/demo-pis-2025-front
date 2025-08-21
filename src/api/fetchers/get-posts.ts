@@ -1,10 +1,11 @@
+import { env } from "@/env";
 import { postSchema } from "@/types/post";
 import { fetcher } from "../helpers/fetchers";
 
 const responseSchema = postSchema.array();
 
 export default async function getPosts() {
-  const posts = await fetcher("https://jsonplaceholder.typicode.com/posts", {
+  const posts = await fetcher(`${env.API_BASE_URL}/posts`, {
     method: "GET",
     next: {
       tags: ["all", "posts"],

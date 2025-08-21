@@ -1,10 +1,11 @@
+import { env } from "@/env";
 import { type Post, postSchema } from "@/types/post";
 import { fetcher } from "../helpers/fetchers";
 
 type CreatePostData = Pick<Post, "title" | "body" | "userId">;
 
 export default async function createPost(data: CreatePostData) {
-  const post = await fetcher("https://jsonplaceholder.typicode.com/posts", {
+  const post = await fetcher(`${env.API_BASE_URL}/posts`, {
     method: "POST",
     body: JSON.stringify(data),
     headers: {

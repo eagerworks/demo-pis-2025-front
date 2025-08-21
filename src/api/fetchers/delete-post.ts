@@ -1,7 +1,8 @@
+import { env } from "@/env";
 import { fetcher } from "../helpers/fetchers";
 
 export default async function deletePost(id: string) {
-  await fetcher(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+  await fetcher(`${env.API_BASE_URL}/posts/${id}`, {
     method: "DELETE",
   });
 }
